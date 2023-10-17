@@ -26,7 +26,7 @@ class DataInvestApp:
         try:
             separator = st.sidebar.text_input("Digite o separador (ex: , ou ;)", ";")  # Pergunte ao usuário pelo separador
             self.df = pd.read_csv(os.path.join("csv", self.selected_file), sep=separator)
-            self.df['DATAf'] = pd.to_datetime(self.df['DATA'], format="%d,%m,%Y")
+            self.df['DATAf'] = pd.to_datetime(self.df['DATA'], format="%d/%m/%Y")
         except Exception as e:
             st.error(f"Erro ao carregar o arquivo CSV: {e}")
             st.stop()
@@ -70,7 +70,7 @@ class DataInvestApp:
             st.write(filtered_df.describe())
 
         # Rodapé
-        st.sidebar.write("Desenvolvido por [Seu Nome]")
+        st.sidebar.write("Desenvolvido por [Igor Alves]")
 
 if __name__ == "__main__":
     app = DataInvestApp()
